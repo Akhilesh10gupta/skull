@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animation Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+    body {
+      margin: 0;
+      background-color: #1d1d1d;
+    }
+
+    p {
+      height: 1000px;
+    }
+
+    .helmet {
+      top: 10px;
+      position: sticky;
+    }
+
+    .helmet-m {
+      background-color: #30336b;
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      border-right: 10px solid #130f40;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .helmet-m:before {
+      content: "";
+      position: absolute;
+      background-color: rgba(255, 255, 255, .3);
+      width: 20px;
+      height: 40px;
+      top: 15px;
+      left: 10px;
+      border-radius: 50%;
+      transform: rotate(30deg);
+    }
+
+    .helmet-m:after {
+      content: "";
+      position: absolute;
+      background-color: #1d1d1d;
+      width: 125px;
+      height: 50px;
+      bottom: 0px;
+    }
+
+    .helment-l {
+      height: 20px;
+      background-color: #30336b;
+      width: 20px;
+      height: 35px;
+      margin: 0 auto;
+      margin-top: -7px;
+      transform: translate(-20px);
+      position: relative;
+      z-index: 55;
+    }
+
+    .face {
+      top: 75px;
+      position: sticky;
+      margin-top: 500px;
+    }
+
+    .face-b {
+      background-color: #fff;
+      width: 105px;
+      border-right: 10px solid lightgray;
+      border-top: 7px solid lightgray;
+      height: 45px;
+      margin: 0 auto;
+      margin-top: -35px;
+      position: relative;
+      z-index: 49;
+      border-radius: 0 0% 30px 10px;
+    }
+
+    .eye {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #1d1d1d;
+      border-radius: 50%;
+    }
+
+    .eye-l {
+      top: 5px;
+      left: 5px;
+    }
+
+    .eye-r {
+      top: 5px;
+      left: 50px;
+    }
+
+    .teeth {
+      background-color: white;
+      width: 15px;
+      height: 15px;
+      margin-left: 1px;
+      display: inline-block;
+      margin-top: 15px;
+      transform: translate(10px);
+    }
+
+    .body {
+      height: 105px;
+      width: 20px;
+      border-radius: 20px;
+      background-color: #828282;
+      top: 145px;
+      position: sticky;
+      margin: 0 auto;
+      margin-top: 100px;
+      z-index: -1;
+      transform: translateY(-30px);
+    }
+
+    .chest {
+      width: 100px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      margin: 0 auto;
+      margin-top: 100px;
+      top: 155px;
+      position: sticky;
+      transform: translate(10px);
+    }
+
+    .low-chest {
+      width: 80px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      margin: 0 auto;
+      margin-top: 100px;
+      top: 185px;
+      position: sticky;
+      transform: translate(10px);
+    }
+
+    .leg-l {
+      transform: translate(10px);
+    }
+
+    .leg {
+      top: 225px;
+      position: sticky;
+      background-color: #fff;
+      width: 20px;
+      height: 35px;
+      margin: 0 auto;
+      margin-top: 50px;
+      transform: translate(13px);
+    }
+
+    .leg:after {
+      content: "";
+      position: absolute;
+      background-color: white;
+      width: 30px;
+      height: 14px;
+      border-radius: 50px;
+      top: -13px;
+      left: -5px;
+    }
+
+    .leg:before {
+      content: "";
+      position: absolute;
+      background-color: #fff;
+      width: 30px;
+      height: 14px;
+      border-radius: 50px 0px 0px 0px;
+      bottom: 0px;
+      left: -10px;
+    }
+
+    .leg-r {
+      background-color: lightgray;
+      z-index: -2;
+      transform: translate(-10px);
+    }
+
+    .leg-r:after {
+      background-color: lightgray;
+    }
+
+    .leg-r:before {
+      background-color: lightgray;
+    }
+
+    .arm {
+      width: 28px;
+      height: 28px;
+      background-color: lightgray;
+      margin: 0 auto;
+      top: 151px;
+      position: sticky;
+      border-radius: 50%;
+      transform: translate(-40px);
+      z-index: -1;
+    }
+
+    .arm-s {
+      width: 15px;
+      height: 13px;
+      background-color: white;
+      margin: 0 auto;
+      top: 175px;
+      position: sticky;
+      transform: translate(-41px);
+      z-index: -4;
+    }
+
+    .sword-b {
+      width: 27px;
+      height: 13px;
+      background-color: #b71540;
+      margin: 0 auto;
+      top: 185px;
+      position: sticky;
+      margin-top: 50px;
+      transform: translate(-45px);
+      border-radius: 0px 0px 10px 0px;
+      z-index: -4;
+    }
+
+    .sword-b:after {
+      content: "";
+      position: absolute;
+      background-color: white;
+      width: 18px;
+      height: 18px;
+      bottom: 0;
+      border-radius: 50%;
+      left: 7px;
+      top: 5px;
+    }
+
+    .sword-b:before {
+      content: "";
+      position: absolute;
+      background-color: #eb2f06;
+      width: 3px;
+      height: 28px;
+      bottom: 0;
+      left: -2px;
+      top: -7px;
+    }
+
+    .sword {
+      width: 87px;
+      height: 13px;
+      background-color: #8d8d8d;
+      border-bottom: 4px solid lightgray;
+      margin: 0 auto;
+      top: 185px;
+      position: sticky;
+      margin-top: 50px;
+      transform: translate(-95px);
+      border-radius: 0px 0px 0px 10px;
+      z-index: -5;
+    }
+
+    .shield {
+      width: 37px;
+      height: 83px;
+      background-color: #971f1f;
+      margin: 0 auto;
+      top: 148px;
+      position: sticky;
+      margin-top: 50px;
+      transform: translate(35px);
+      border-radius: 0px 0px 0px 50%;
+      z-index: 55;
+    }
+
+    .shield2 {
+      width: 37px;
+      height: 83px;
+      background-color: #ff8c00;
+      margin: 0 auto;
+      top: 148px;
+      position: sticky;
+      margin-top: 50px;
+      transform: translate(69px);
+      border-radius: 0 0 50% 0;
+      z-index: 55;
+    }
+
+    button {
+      color: white;
+      border: 0;
+      padding: 10px 5px;
+      background-color: #5f27cd;
+      font-size: 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+      width: 200px;
+      cursor: pointer;
+      border-bottom: 2px solid #341f97;
+      font-family: 'Lexend Deca', sans-serif;
+    }
+
+    .scroll {
+      font-family: 'Lexend Deca', sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div style='text-align:center;'>
+    <button class='animated pulse'>PLAY ANIMATION</button>
+  </div>
+
+  <div style='text-align:center;color:#fff;' class='scroll'>Or scroll down</div>
+
+  <p></p>
+
+  <div class='helmet'>
+    <div class='helmet-m'></div>
+  </div>
+
+  <div class='face'>
+    <div class='face-b'>
+      <div class='helment-l'></div>
+      <div class='eye eye-l'></div>
+      <div class='eye eye-r'></div>
+      <div class='teeth t-1'></div>
+      <div class='teeth t-2'></div>
+      <div class='teeth t-3'></div>
+    </div>
+  </div>
+
+  <div class="body"></div>
+
+  <div class='chest'></div>
+
+  <div class='low-chest'></div>
+
+  <div class='leg leg-l'></div>
+
+  <div class='leg leg-r'></div>
+
+  <div class='arm'></div>
+
+  <div class='arm-s'></div>
+
+  <div class='sword-b'></div>
+
+  <div class='sword'></div>
+
+  <div class='shield'></div>
+  <div class='shield2'></div>
+
+  <p></p>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $("button").on('click', function () {
+      $("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 3000);
+    });
+  </script>
+
+</body>
+</html>
